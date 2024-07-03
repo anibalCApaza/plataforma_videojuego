@@ -9,3 +9,5 @@ class Conexion extends \mysqli
         parent::__construct("localhost", "root", "", "videojuegos");
     }
 }
+
+

@@ -1,26 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require_once ('../../vista/componentes/header.php');
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 
-<body>
+<div class="col-6">
+    <div class="card">
 
-    <form action="" method="POST">
-        <label for="">NOMBRE</label>
-        <input type="text" name="nombre">
-        <label for="">FECHA LANZAMIENTO</label>
-        <input type="date" name="fecha_lanzamiento">
-        <label for="">IMAGEN</label>
-        <input type="text" name="imagen">
-        <label for="">EMPRESA</label>
-        <input type="text" name="empresa">
-        <input type="submit" value="REGISTRAR">
-    </form>
 
-</body>
+        <form action="" method="POST">
 
-</html>
+
+            <div class="card-header bg-secondary">
+                REGISTRAR PLATAFORMA
+            </div>
+            <div class="card-body">
+
+                <div class="form-group">
+                    <label for="">NOMBRE</label>
+                    <input class="form-control" type="text" name="nombre" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="">FECHA LANZAMIENTO</label>
+                    <input class="form-control" type="date" name="fecha_lanzamiento" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">IMAGEN</label>
+                    <input class="form-control" type="text" name="imagen" required>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="">EMPRESA</label>
+                    <input class="form-control" type="text" name="empresa" required>
+                </div>
+
+            </div>
+            <div class="card-footer ">
+                <input class="btn btn-success w-100 btn-block " type="submit" value="REGISTRAR">
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<?php
+require_once ('../../vista/componentes/footer.php');
+?>
