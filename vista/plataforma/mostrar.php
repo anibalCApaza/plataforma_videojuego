@@ -1,5 +1,5 @@
 <?php
-require_once ('../../vista/componentes/header.php');
+require_once('../../vista/componentes/header.php');
 ?>
 
 <table border="1" class="table ">
@@ -14,21 +14,32 @@ require_once ('../../vista/componentes/header.php');
         <?php
         if ($res->num_rows > 0) {
             while ($row = $res->fetch_assoc()) {
-                ?>
+        ?>
                 <tr>
                     <td><?= $row['nombre'] ?></td>
                     <td><?= $row['fecha_lanzamiento'] ?></td>
-                    <td><?= $row['imagen'] ?></td>
+                    <td><img src="../../static/imagenes/plataforma/<?= $row['imagen'] ?>" width="100px" alt=""></td>
                     <td><?= $row['empresa'] ?></td>
                     <td>
-                        <form class="eliminarForm" action="eliminar.php" method="POST">
-                            <input type="text" name="id_plataforma" value="<?= $row['id_plataforma'] ?>" hidden>
-                            <input class="btn btn-danger" type="submit" value="ELIMINAR">
-                        </form>
-                    </td>
+                        <div class="row">
+                            <div class="col">
+                                <form action="actualizar.php" method="GET">
+                                    <input type="text" name="id_plataforma" value="<?= $row['id_plataforma'] ?>" hidden>
+                                    <input class="btn btn-warning btn-block w-100" type="submit" value="MODIFICAR">
+                                </form>
+                            </div>
+                            <div class="col">
 
+                                <form class="eliminarForm" action="eliminar.php" method="POST">
+                                    <input type="text" name="id_plataforma" value="<?= $row['id_plataforma'] ?>" hidden>
+                                    <input class="btn btn-danger btn-block w-100" type="submit" value="ELIMINAR">
+                                </form>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
-                <?php
+        <?php
+
             }
         }
         ?>
@@ -36,13 +47,13 @@ require_once ('../../vista/componentes/header.php');
 </table>
 
 <?php
-require_once ('../../vista/componentes/footer.php');
+require_once('../../vista/componentes/footer.php');
 ?>
 
 <script>
     // Captura el evento de envío de todos los formularios con clase "eliminarForm"
     document.querySelectorAll('.eliminarForm').forEach(form => {
-        form.addEventListener('submit', function (event) {
+        form.addEventListener('submit', function(event) {
             event.preventDefault(); // Evita que el formulario se envíe automáticamente
 
             // Obtén el valor del input "id_plataforma" de este formulario específico

@@ -1,5 +1,5 @@
 <?php
-require_once ('../../vista/componentes/header.php');
+require_once('../../vista/componentes/header.php');
 ?>
 
 
@@ -7,7 +7,7 @@ require_once ('../../vista/componentes/header.php');
     <div class="card">
 
 
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
 
 
             <div class="card-header bg-secondary">
@@ -28,7 +28,7 @@ require_once ('../../vista/componentes/header.php');
 
                 <div class="form-group">
                     <label for="">IMAGEN</label>
-                    <input class="form-control" type="text" name="imagen" required>
+                    <input class="form-control" type="file" name="imagen" required>
                 </div>
 
                 <div class="form-group">
@@ -47,5 +47,5 @@ require_once ('../../vista/componentes/header.php');
 </div>
 
 <?php
-require_once ('../../vista/componentes/footer.php');
+require_once('../../vista/componentes/footer.php');
 ?>

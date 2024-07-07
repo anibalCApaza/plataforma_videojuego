@@ -29,6 +29,27 @@ class Plataforma
         return $sql;
     }
 
+    public function buscar()
+    {
+        $db = new Conexion();
+        $sql = $db->query("SELECT * FROM plataforma WHERE id_plataforma = $this->id_plataforma");
+        return $sql;
+    }
+
+    public function actualizar_con_imagen()
+    {
+        $db = new Conexion();
+        $sql = $db->query("UPDATE plataforma SET nombre='$this->nombre', fecha_lanzamiento='$this->fecha_lanzamiento', imagen='$this->imagen', empresa='$this->empresa' WHERE id_plataforma=$this->id_plataforma;");
+        return $sql;
+    }
+    public function actualizar_sin_imagen()
+    {
+        $db = new Conexion();
+        $sql = $db->query("UPDATE plataforma SET nombre='$this->nombre', fecha_lanzamiento='$this->fecha_lanzamiento', empresa='$this->empresa' WHERE id_plataforma=$this->id_plataforma;");
+        return $sql;
+    }
+
+
     public function eliminar()
     {
         $db = new Conexion();

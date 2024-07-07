@@ -11,11 +11,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         "",
         $_POST['nombre'],
         $_POST['fecha_lanzamiento'],
-        $_POST['imagen'],
+        $_FILES['imagen']['name'],
         $_POST['empresa'],
     );
 
-    $res = $plataforma->registrar();
+    $ruta_imagen = '../../static/imagenes/plataforma/';
+    if (move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_imagen . basename($_FILES['imagen']['name']))) {
+        $res = $plataforma->registrar();
+    } else {
+        $res = null;
+    }
+
 
     if ($res) {
         require("../../vista/" . basename(dirname(__FILE__)) . "/registrar.php");
